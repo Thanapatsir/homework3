@@ -1,0 +1,29 @@
+###Installing
+
+1. Install devise: following tutorial
+2. Create devise:user model
+3. rails g scaffold Blogs content:text user:references
+4. rake db:migrate
+5. add association User -> has_many :blogs
+6. add association Blogs -> belongs_to :user
+7. set before_action authenticate_user! in application_controller.rb
+8. testing stage: change the orginal render view using Raw, Two equal sign, html_safe and sanitize
+<p>
+  <strong>Content:</strong>
+  <%= raw @blog.content %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%== @blog.content %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%= @blog.content.html_safe %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%= sanitize @blog.content %>
+</p>
+
+From testing in different methods, every methods failed except for sanitize. Thus didn't tricker alert.
+I found that the best method would be the original, less and simple code without alert.
