@@ -2,7 +2,7 @@
 
 1. Install devise: following tutorial
 2. Create devise:user model
-3. rails g scaffold Blogs content:text user:references
+2. rails g scaffold Blogs content:text user:references
 4. rake db:migrate
 5. add association User -> has_many :blogs
 6. add association Blogs -> belongs_to :user
